@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "node ./dist/script.js",
+    "start": "ts-node ./src/script.ts",
     "build": "npx tsc"
   }
 }

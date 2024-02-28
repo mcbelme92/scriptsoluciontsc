@@ -86,7 +86,7 @@ Este proyecto proporciona una manera eficiente de obtener, analizar y visualizar
 
 ## Script.ts
 
-Path: `.src/script.ts`
+Path: `./src/script.ts`
 
 Descripción:
 Las funciones countPostsByUser y findLongestTitles se importan desde el módulo post.utils. Se utilizan para calcular el número de publicaciones por usuario y encontrar las publicaciones con los títulos más largos, respectivamente.
