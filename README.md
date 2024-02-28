@@ -8,7 +8,7 @@ git clone https://github.com/mcbelme92/scriptsoluciontsc
 Accede al directorio del proyecto:
 
 ```ts
-cd proyecto-typescript
+cd scripttsempleo
 
 ```
 
