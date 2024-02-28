@@ -1,6 +1,8 @@
 jecución del Script TypeScript
 Configuración del Proyecto:
 
+Version de Node que se uso para la creacion del proyecto: v20.9.0
+
 ```ts
 git clone https://github.com/mcbelme92/scriptsoluciontsc
 ```
