@@ -1,29 +1,74 @@
-Proyecto Empleo
+Descripción General
+Este proyecto está diseñado para obtener datos de un endpoint de API que proporciona información sobre publicaciones. Luego, realiza ciertas operaciones para analizar y mostrar los datos de manera estructurada. Utiliza TypeScript para garantizar la seguridad y la integridad del código.
 
-Descripción
-Este proyecto es una aplicación TypeScript que utiliza la biblioteca node-fetch para realizar solicitudes HTTP a un endpoint de una API y procesar los datos recibidos. La aplicación cuenta con una estructura modular y utiliza TypeScript para un desarrollo más seguro y mantenible.
+Componentes Principales
+El proyecto consta de los siguientes componentes principales:
 
-Estructura de Carpetas y Archivos
-pai/: Carpeta que contiene la lógica relacionada con la API.
-post.api.ts: Archivo que contiene la función fetchData para realizar solicitudes a la API.
-interface/: Carpeta que contiene las interfaces TypeScript utilizadas en el proyecto.
-post.interface.ts: Define la interfaz Post para representar los datos de las publicaciones.
-utils/: Carpeta que contiene funciones de utilidad para el procesamiento de datos.
-post.utils.ts: Contiene funciones para contar el número de publicaciones por usuario y encontrar las 3 publicaciones con los títulos más largos.
-script.tsc: Archivo principal que importa la función fetchData y procesa los datos recibidos de la API.
-README.md: Archivo de documentación que proporciona información sobre el proyecto y cómo ejecutarlo.
-Configuración del Proyecto
-node-fetch: Biblioteca utilizada para realizar solicitudes HTTP en entornos de Node.js.
-TypeScript: Lenguaje de programación utilizado para escribir código con tipado estático.
-API externa: El proyecto utiliza una API externa (JSONPlaceholder) para obtener datos de publicaciones.
-Instalación y Uso
-Clona el repositorio desde https://github.com/mcbelme92/scriptsoluciontsc.git
-Instala las dependencias utilizando el comando npm install.
-Ejecuta el proyecto con npm start.
+1. Interface Post
+   El archivo post.interface.ts define la estructura de datos de una publicación.
 
-## PostUtils
+Propiedades:
+userId: El identificador del usuario que realizó la publicación.
+id: El identificador único de la publicación.
+title: El título de la publicación.
+body: El cuerpo o contenido de la publicación.
 
-Path: `./src/utils/postUtils.ts`
+2. API Post
+   El archivo post.api.ts contiene la lógica para obtener datos del endpoint de la API.
+
+Funciones:
+fetchData: Realiza una solicitud HTTP al endpoint de la API para obtener los datos de las publicaciones.
+
+3. Utilidades de Publicaciones
+   El archivo post.utils.ts contiene funciones útiles para el procesamiento de datos de las publicaciones.
+
+Funciones:
+countPostsByUser: Calcula el número de publicaciones por usuario.
+findLongestTitles: Encuentra las 3 publicaciones con los títulos más largos. 4. Script Principal
+El archivo script.ts es el punto de entrada principal del proyecto.
+
+Funciones:
+processData: Recupera los datos de las publicaciones utilizando la función fetchData, y luego utiliza las utilidades de publicaciones para analizar y mostrar los datos obtenidos.
+Funcionamiento del Proyecto
+El script principal, script.ts, inicia el proceso de obtención y procesamiento de los datos de las publicaciones.
+Utiliza la función fetchData para obtener los datos del endpoint de la API.
+Una vez que se reciben los datos, utiliza las utilidades de publicaciones para realizar análisis y generar estadísticas sobre las publicaciones.
+Finalmente, muestra los resultados en la consola.
+Este proyecto proporciona una manera eficiente de obtener, analizar y visualizar datos de publicaciones, lo que puede ser útil para diversos propósitos de análisis y visualización de datos.
+
+## Script.ts
+
+Path: `.src/script.ts`
+
+Descripción:
+Las funciones countPostsByUser y findLongestTitles se importan desde el módulo post.utils. Se utilizan para calcular el número de publicaciones por usuario y encontrar las publicaciones con los títulos más largos, respectivamente.
+
+Función processData
+
+Descripción:
+La función processData es asincrónica y realiza el procesamiento de los datos obtenidos de la API.
+Utiliza fetchData para obtener los datos de las publicaciones.
+Si los datos se reciben correctamente, utiliza las funciones countPostsByUser y findLongestTitles para analizar los datos y generar estadísticas.
+Finalmente, imprime los resultados en la consola.
+
+```ts
+const processData = async () => {
+  const data: Post[] = await fetchData();
+  if (data) {
+    const postsCountByUser: { [key: number]: number } = countPostsByUser(data);
+    console.log("Número de publicaciones por usuario:", postsCountByUser);
+    const longestTitles: { id: number; title: string }[] =
+      findLongestTitles(data);
+    console.log("Publicaciones con títulos más largos:", longestTitles);
+  }
+};
+
+processData();
+```
+
+## Post Utils
+
+Path: `./src/utils/post.utils.ts`
 
 Funciones de Utilidad para Publicaciones
 Este proyecto contiene dos funciones de utilidad diseñadas para analizar conjuntos de publicaciones.
@@ -55,3 +100,14 @@ const longestTitles = findLongestTitles(posts);
 console.log("Publicaciones con títulos más largos:", longestTitles);
 
 ```
+
+## Post Api
+
+Path: `./src/api/post.api.ts`
+
+Funciones de Api
+
+El archivo post.api.ts contiene la lógica para obtener datos del endpoint de la API.
+
+Funciones:
+fetchData: Realiza una solicitud HTTP al endpoint de la API para obtener los datos de las publicaciones.

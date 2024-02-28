@@ -10,21 +10,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchData = void 0;
-const post_utils_1 = require("../utils/post.utils");
 const constants_1 = require("./constants");
-// Función para obtener los datos del endpoint
+/**
+ * Realiza una solicitud al endpoint especificado para obtener datos de publicaciones.
+ * @returns Una promesa que resuelve en un array de objetos de tipo `Post` si la solicitud es exitosa, de lo contrario, devuelve `null`.
+ * @example
+ * // Ejemplo de uso:
+ * fetchData()
+ *   .then((data) => {
+ *     if (data) {
+ *       console.log("Datos obtenidos:", data);
+ *     } else {
+ *       console.log("No se pudieron obtener los datos.");
+ *     }
+ *   })
+ *   .catch((error) => {
+ *     console.error("Ocurrió un error:", error);
+ *   });
+ */
 const fetchData = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // Realiza la petición a la URL del endpoint
         const response = yield fetch(constants_1.endpointUrl);
         // Verifica si la petición fue exitosa (código de estado 200)
         if (response.ok) {
-            // Convierte la respuesta a formato JSON
             const data = yield response.json();
-            const postsCountByUser = (0, post_utils_1.countPostsByUser)(data);
-            console.log("Número de publicaciones por usuario:", postsCountByUser);
-            const longestTitles = (0, post_utils_1.findLongestTitles)(data);
-            console.log("Publicaciones con títulos más largos:", longestTitles);
             return data;
         }
         else {
