@@ -41,6 +41,14 @@ yarn dev
 
 npm run dev
 
+# o si tienes typescript instalado sino instalalo con este comando de manera global
+
+npm install -g ts-node
+
+# y ejecuta
+
+npm start
+
 typescript es el compilador de TypeScript.
 ts-node permite ejecutar archivos TypeScript directamente.
 node-fetch es una biblioteca para realizar solicitudes HTTP en Node.js.
