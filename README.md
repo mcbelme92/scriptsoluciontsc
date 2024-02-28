@@ -1,3 +1,51 @@
+jecución del Script TypeScript
+Configuración del Proyecto:
+
+```ts
+git clone https://github.com/mcbelme92/scriptsoluciontsc
+```
+
+Accede al directorio del proyecto:
+
+```ts
+cd proyecto-typescript
+
+```
+
+Instala las dependencias del proyecto usando Yarn o npm:
+
+```ts
+yarn
+
+# o
+
+npm install
+```
+
+Uso
+Para compilar el código TypeScript y ejecutar la aplicación, puedes utilizar los siguientes comandos:
+
+# Compilar el código TypeScript
+
+yarn build
+
+# o
+
+npm run build
+
+# Ejecutar la aplicación
+
+yarn dev
+
+# o
+
+npm run dev
+
+typescript es el compilador de TypeScript.
+ts-node permite ejecutar archivos TypeScript directamente.
+node-fetch es una biblioteca para realizar solicitudes HTTP en Node.js.
+@types/node-fetch proporciona los tipos TypeScript para node-fetch.
+
 Descripción General
 Este proyecto está diseñado para obtener datos de un endpoint de API que proporciona información sobre publicaciones. Luego, realiza ciertas operaciones para analizar y mostrar los datos de manera estructurada. Utiliza TypeScript para garantizar la seguridad y la integridad del código.
 

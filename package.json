@@ -1,9 +1,14 @@
 {
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@types/node-fetch": "^2.6.11",
     "node-fetch": "^2.7.0"
+  },
+  "scripts": {
+    "dev": "node ./dist/script.js",
+    "build": "npx tsc"
   }
 }
