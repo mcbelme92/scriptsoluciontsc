@@ -17,7 +17,7 @@ const processData = async (): Promise<void> => {
         countPostsByUser(data);
       console.log("Número de publicaciones por usuario:", postsCountByUser);
 
-      // Encuentra las publicaciones con los títulos más largos
+      // Encuentra las publicaciones con los  títulos más largos
       const longestTitles: { id: number; title: string }[] =
         findLongestTitles(data);
       console.log("Publicaciones con los 3 títulos más largos:", longestTitles);
